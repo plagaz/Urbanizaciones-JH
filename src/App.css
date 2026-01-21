@@ -1,0 +1,1143 @@
+.panel-lateral {
+  width: 380px;
+  background-color: #1e293b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.header-panel {
+  padding: 20px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-panel h2 {
+  margin: 0;
+  font-size: 24px;
+  color: white;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-gestionar {
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-gestionar:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-gestionar.activo {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-admin {
+  background-color: rgba(34, 197, 94, 0.2) !important;
+  border-color: rgba(34, 197, 94, 0.5) !important;
+}
+
+.btn-admin.activo {
+  background-color: rgba(34, 197, 94, 0.6) !important;
+}
+
+/* Gestión de Proyectos */
+.gestion-proyectos {
+  padding: 20px;
+  background-color: #0f172a;
+  border-bottom: 2px solid #334155;
+}
+
+.selector-proyecto {
+  margin-bottom: 15px;
+}
+
+.selector-proyecto label {
+  display: block;
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.select-proyecto {
+  width: 100%;
+  padding: 10px;
+  background-color: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.select-proyecto:focus {
+  border-color: #60a5fa;
+}
+
+.botones-proyecto {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.btn-proyecto {
+  padding: 10px;
+  background-color: #334155;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.btn-proyecto:hover {
+  background-color: #475569;
+}
+
+.btn-importar {
+  display: inline-block;
+}
+
+.btn-eliminar {
+  background-color: #7f1d1d;
+}
+
+.btn-eliminar:hover {
+  background-color: #991b1b;
+}
+
+.btn-reset {
+  background-color: #ea580c;
+  grid-column: 1 / -1;
+}
+
+.btn-reset:hover {
+  background-color: #c2410c;
+}
+
+.panel-lateral h2 {
+  margin: 0;
+  font-size: 24px;
+  color: white;
+}
+
+/* Estadísticas */
+.estadisticas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 20px;
+  background-color: #0f172a;
+}
+
+.estadisticas .stat-item:first-child {
+  grid-column: 1 / -1;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background-color: #1e293b;
+  border-radius: 8px;
+  border: 2px solid #334155;
+}
+
+.stat-item.disponible {
+  border-color: #22c55e;
+}
+
+.stat-item.vendido {
+  border-color: #ef4444;
+}
+
+.stat-item.reservado {
+  border-color: #f59e0b;
+}
+
+.stat-item.area-verde {
+  border-color: #10b981;
+}
+
+.stat-numero {
+  font-size: 28px;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Búsqueda */
+.busqueda {
+  padding: 15px 20px;
+}
+
+.input-busqueda {
+  width: 100%;
+  padding: 12px;
+  background-color: #0f172a;
+  border: 2px solid #334155;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-busqueda:focus {
+  border-color: #60a5fa;
+}
+
+.input-busqueda::placeholder {
+  color: #64748b;
+}
+
+/* Filtros */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 20px 15px 20px;
+}
+
+.btn-filtro {
+  flex: 1 1 calc(50% - 4px);
+  min-width: 120px;
+  padding: 10px;
+  background-color: #334155;
+  color: #94a3b8;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-filtro:hover {
+  background-color: #475569;
+  color: white;
+}
+
+.btn-filtro.activo {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* Lista de lotes */
+.lista-lotes {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.lista-lotes h3 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  color: #cbd5e1;
+}
+
+.lotes-scroll {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 10px;
+}
+
+.lote-item {
+  padding: 15px;
+  background-color: #0f172a;
+  border-radius: 8px;
+  border: 2px solid #334155;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.lote-item:hover {
+  border-color: #60a5fa;
+  background-color: #1e293b;
+}
+
+.lote-item.seleccionado {
+  border-color: #3b82f6;
+  background-color: #1e293b;
+}
+
+.lote-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.lote-nombre {
+  font-weight: 600;
+  color: white;
+  font-size: 15px;
+}
+
+.lote-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.lote-badge.disponible {
+  background-color: #22c55e;
+  color: white;
+}
+
+.lote-badge.vendido {
+  background-color: #ef4444;
+  color: white;
+}
+
+.lote-badge.reservado {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.lote-badge.area-verde {
+  background-color: #10b981;
+  color: white;
+}
+
+.lote-precio {
+  font-size: 18px;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+.mensaje-inicial {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+.info-lote {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-item label {
+  font-size: 12px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.info-item .valor {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+}
+
+.estado {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
+
+.estado-disponible {
+  background-color: #22c55e;
+  color: white;
+}
+
+.estado-vendido {
+  background-color: #ef4444;
+  color: white;
+}
+
+.estado-reservado {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.estado-area-verde {
+  background-color: #10b981;
+  color: white;
+}
+
+.precio {
+  font-size: 28px;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+.btn-reservar {
+  margin-top: 10px;
+  padding: 12px 24px;
+  background-color: #60a5fa;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.btn-reservar:hover {
+  background-color: #3b82f6;
+}
+
+.btn-vender {
+  margin-top: 10px;
+  padding: 12px 24px;
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.btn-vender:hover {
+  background-color: #16a34a;
+}
+
+.btn-liberar {
+  width: 100%;
+  padding: 12px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 8px;
+}
+
+.btn-liberar:hover {
+  background-color: #2563eb;
+}
+
+/* Botones de cambio de estado */
+.botones-estado {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.btn-estado {
+  padding: 10px;
+  background-color: #334155;
+  color: #cbd5e1;
+  border: 2px solid #475569;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-estado:hover:not(:disabled) {
+  background-color: #475569;
+  color: white;
+}
+
+.btn-estado.activo {
+  background-color: #60a5fa;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.btn-estado:disabled,
+.btn-estado.deshabilitado {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #1f2937;
+  color: #6b7280;
+  border-color: #374151;
+}
+
+.btn-estado:disabled:hover,
+.btn-estado.deshabilitado:hover {
+  background-color: #1f2937;
+}
+
+/* Cursor pointer sobre los polígonos */
+.leaflet-interactive {
+  cursor: pointer !important;
+}
+
+/* Modo edición */
+.modo-edicion {
+  margin-bottom: 20px;
+}
+
+.btn-modo {
+  width: 100%;
+  padding: 12px;
+  background-color: #334155;
+  color: white;
+  border: 2px solid #475569;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-modo.activo {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+.btn-modo:hover {
+  background-color: #475569;
+}
+
+.btn-modo.activo:hover {
+  background-color: #059669;
+}
+
+.controles-edicion {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #0f172a;
+  border-radius: 8px;
+}
+
+.ayuda {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+}
+
+.coordenadas-info {
+  margin: 10px 0;
+  color: #60a5fa;
+  font-size: 14px;
+}
+
+.botones-edicion {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-copiar,
+.btn-limpiar,
+.btn-guardar-lote {
+  flex: 1;
+  min-width: 100px;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-guardar-lote {
+  background-color: #10b981;
+  color: white;
+  flex: 1 1 100%;
+}
+
+.btn-guardar-lote:hover {
+  background-color: #059669;
+}
+
+.btn-copiar {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn-copiar:hover {
+  background-color: #2563eb;
+}
+
+.btn-limpiar {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btn-limpiar:hover {
+  background-color: #dc2626;
+}
+
+.preview-coords {
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #020617;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.preview-coords code {
+  color: #22d3ee;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  white-space: pre;
+  display: block;
+}
+
+.modal-contenido .estado {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  margin: 16px 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal-contenido .estado.estado-disponible {
+  background-color: #10b981;
+  color: white;
+}
+
+.modal-contenido .estado.estado-vendido {
+  background-color: #ef4444;
+  color: white;
+}
+
+.modal-contenido .estado.estado-reservado {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.modal-contenido .estado.estado-area-verde {
+  background-color: #14b8a6;
+  color: white;
+}
+
+.modal-contenido .precio {
+  display: block;
+  font-size: 24px;
+  font-weight: 800;
+  color: #60a5fa;
+  margin: 20px 0 28px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #334155;
+  letter-spacing: -0.5px;
+}
+
+.modal-contenido .btn-reservar,
+.modal-contenido .btn-vender,
+.modal-contenido .btn-liberar {
+  width: 100%;
+  padding: 16px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.modal-contenido .btn-reservar {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.modal-contenido .btn-reservar:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+}
+
+.modal-contenido .btn-vender {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.modal-contenido .btn-vender:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.5);
+}
+
+.modal-contenido .btn-liberar {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.modal-contenido .btn-liberar:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+}
+
+/* Modal de lote */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-contenido {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: white;
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 
+              0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  border: 1px solid #334155;
+  animation: slideUp 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Tamaños del modal */
+.modal-sm {
+  max-width: 320px;
+  width: 90%;
+}
+
+.modal-md {
+  max-width: 420px;
+  width: 90%;
+}
+
+.modal-lg {
+  max-width: 600px;
+  width: 90%;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-contenido h2 {
+  margin: 0 0 24px 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: #f1f5f9;
+  letter-spacing: -0.5px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #334155;
+}
+
+.modal-body {
+  margin-top: 20px;
+}
+
+.btn-cerrar-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.btn-cerrar-modal:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #f1f5f9;
+  transform: scale(1.1);
+}
+
+.btn-cerrar-modal:active {
+  transform: scale(0.95);
+}
+
+.modal-contenido h2 {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+}
+
+.modal-contenido .estado {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.modal-contenido .precio {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #60a5fa;
+  margin-bottom: 20px;
+}
+
+.modal-contenido button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+/* Botones flotantes */
+.botones-flotantes {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 500;
+}
+
+.btn-flotante {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.btn-admin-flotante {
+  background-color: #1e293b;
+  color: white;
+  border: 2px solid #475569;
+}
+
+.btn-admin-flotante:hover {
+  background-color: #334155;
+  transform: scale(1.05);
+}
+
+.btn-admin-flotante.activo {
+  background-color: #22c55e;
+  border-color: #16a34a;
+  color: white;
+}
+
+.btn-admin-flotante.activo:hover {
+  background-color: #16a34a;
+}
+
+/* --- Corporate, elegante restyle overrides --- */
+:root {
+  --bg-base: #0a1220;
+  --bg-surface: #0f182a;
+  --bg-panel: #121b2c;
+  --border-strong: #1c2637;
+  --border-soft: #182235;
+  --text-main: #e7edf6;
+  --text-muted: #9fb1c9;
+  --accent: #2b73d9;
+  --accent-strong: #1f5fb8;
+  --success: #2fbf71;
+  --error: #e35d6a;
+  --warning: #f0a636;
+}
+
+.panel-lateral {
+  background-color: var(--bg-panel);
+  color: var(--text-main);
+  box-shadow: -12px 0 40px rgba(0, 0, 0, 0.35);
+}
+
+.header-panel {
+  background: linear-gradient(135deg, #0f172a 0%, #1b2740 100%);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.header-panel h2,
+.panel-lateral h2 {
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+}
+
+.btn-gestionar {
+  background-color: #162238;
+  border: 1px solid var(--border-strong);
+  color: var(--text-main);
+}
+
+.btn-gestionar:hover {
+  background-color: #1d2a42;
+  border-color: var(--accent);
+}
+
+.btn-gestionar.activo {
+  background-color: #1d2a42;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(43, 115, 217, 0.35);
+}
+
+.btn-admin {
+  background-color: rgba(47, 191, 113, 0.14) !important;
+  border-color: rgba(47, 191, 113, 0.5) !important;
+}
+
+.gestion-proyectos {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.selector-proyecto label {
+  color: var(--text-muted);
+}
+
+.select-proyecto {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-strong);
+  color: var(--text-main);
+}
+
+.select-proyecto:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(43, 115, 217, 0.15);
+}
+
+.btn-proyecto {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  color: var(--text-main);
+}
+
+.btn-proyecto:hover {
+  background-color: #162238;
+  border-color: var(--accent);
+}
+
+.btn-reset {
+  background-color: #2f394c;
+}
+
+.btn-reset:hover {
+  background-color: #39465c;
+}
+
+.estadisticas {
+  background-color: var(--bg-surface);
+}
+
+.stat-item {
+  background-color: var(--bg-panel);
+  border-color: var(--border-strong);
+}
+
+.stat-item.disponible { border-color: var(--success); }
+.stat-item.vendido { border-color: var(--error); }
+.stat-item.reservado { border-color: var(--warning); }
+.stat-item.area-verde { border-color: #2cbf91; }
+
+.stat-numero {
+  color: var(--accent);
+}
+
+.stat-label {
+  color: var(--text-muted);
+}
+
+.busqueda {
+  padding: 18px 20px;
+}
+
+.input-busqueda {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text-main);
+}
+
+.input-busqueda:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(43, 115, 217, 0.14);
+}
+
+.input-busqueda::placeholder {
+  color: var(--text-muted);
+}
+
+.filtros {
+  padding-bottom: 18px;
+}
+
+.btn-filtro {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+}
+
+.btn-filtro:hover {
+  background-color: #162238;
+  color: var(--text-main);
+}
+
+.btn-filtro.activo {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-main);
+}
+
+.lista-lotes h3 {
+  color: var(--text-main);
+}
+
+.lote-item {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+}
+
+.lote-item:hover {
+  border-color: var(--accent);
+  background-color: var(--bg-panel);
+}
+
+.lote-item.seleccionado {
+  border-color: var(--accent);
+  background-color: var(--bg-panel);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.lote-nombre {
+  color: var(--text-main);
+}
+
+.lote-precio {
+  color: var(--accent);
+}
+
+.lote-badge.disponible { background-color: var(--success); }
+.lote-badge.vendido { background-color: var(--error); }
+.lote-badge.reservado { background-color: var(--warning); color: #1b1200; }
+.lote-badge.area-verde { background-color: #2cbf91; }
+
+.mensaje-inicial,
+.info-item label,
+.stat-label {
+  color: var(--text-muted);
+}
+
+.info-item .valor {
+  color: var(--text-main);
+}
+
+.estado-disponible { background-color: var(--success); color: #052611; }
+.estado-vendido { background-color: var(--error); color: #2b0a10; }
+.estado-reservado { background-color: var(--warning); color: #1b1200; }
+
+.btn-admin-flotante {
+  background-color: var(--bg-panel);
+  color: var(--text-main);
+  border: 1px solid var(--border-strong);
+}
+
+.btn-admin-flotante:hover {
+  background-color: #162238;
+}
+
+.btn-admin-flotante.activo {
+  background-color: var(--accent);
+  border-color: var(--accent-strong);
+}
+
+.btn-admin-flotante.activo:hover {
+  background-color: var(--accent-strong);
+}
