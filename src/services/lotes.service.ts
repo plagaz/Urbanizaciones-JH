@@ -82,24 +82,23 @@ export const updateLoteEstado = async (
   promotor?: string
 ): Promise<void> => {
   try {
-    // Verificar autorización de admin
-    const isAdmin = await checkIsAdmin();
-    if (!isAdmin) {
-      throw new Error('No autorizado: Se requiere rol de administrador');
+    // Solo exigir admin si NO es reserva
+    if (estado !== 'reservado') {
+      const isAdmin = await checkIsAdmin();
+      if (!isAdmin) {
+        throw new Error('No autorizado: Se requiere rol de administrador');
+      }
     }
     const updateData: LoteUpdate = { estado };
-    
     if (estado === 'reservado' && promotor) {
       updateData.promotor = promotor;
     } else if (estado !== 'reservado') {
       updateData.promotor = null;
     }
-
     const { error } = await supabase
       .from('lotes')
       .update(updateData)
       .eq('id', loteId);
-
     if (error) {
       console.error('Error al actualizar estado:', error);
       throw error;
