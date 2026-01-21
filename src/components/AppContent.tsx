@@ -9,7 +9,10 @@ import {
   DialogContent,
   DialogActions,
   Typography,
+  useMediaQuery,
+  Fab
 } from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { type Lote, type Proyecto, supabase } from "../lib/supabase";
 import { useNotification } from "../contexts/NotificationContext";
@@ -36,6 +39,8 @@ import { checkIsAdmin, onAuthStateChange } from "../services/auth.service";
 const LoteMap = lazy(() => import("./LoteMap").then(module => ({ default: module.LoteMap })));
 
 export function AppContent() {
+  const isMobile = useMediaQuery('(max-width:600px)');
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const queryClient = useQueryClient();
   const { showError, showSuccess } = useNotification();
 
@@ -423,24 +428,44 @@ export function AppContent() {
             height: "100vh",
             width: "100%",
             bgcolor: "background.default",
-            pl: isAdmin ? "260px" : 0,
+            pl: isAdmin && !isMobile ? "260px" : 0,
           }}
         >
           {isAdmin && (
-            <AdminNavBar
-              proyectoNombre={proyectoActual.nombre}
-              isAdmin={isAdmin}
-              onBack={() => { setShowSelector(true); }}
-              onOpenLogin={() => {
-                blurActiveElement();
-                setOpenAdminLogin(true);
-              }}
-              onLogout={() => { void logoutAdmin(); }}
-              onOpenProjects={() => {
-                blurActiveElement();
-                setOpenAdminProjectsDialog(true);
-              }}
-            />
+            <>
+              {/* Botón flotante solo en móvil */}
+              {isMobile && (
+                <Fab
+                  color="primary"
+                  aria-label="menu"
+                  onClick={() => setDrawerOpen(true)}
+                  sx={{
+                    position: "fixed",
+                    top: 20,
+                    left: 20,
+                    zIndex: 1300,
+                  }}
+                >
+                  <MenuIcon />
+                </Fab>
+              )}
+              <AdminNavBar
+                proyectoNombre={proyectoActual.nombre}
+                isAdmin={isAdmin}
+                onBack={() => { setShowSelector(true); }}
+                onOpenLogin={() => {
+                  blurActiveElement();
+                  setOpenAdminLogin(true);
+                }}
+                onLogout={() => { void logoutAdmin(); }}
+                onOpenProjects={() => {
+                  blurActiveElement();
+                  setOpenAdminProjectsDialog(true);
+                }}
+                open={isMobile ? drawerOpen : undefined}
+                onClose={isMobile ? () => setDrawerOpen(false) : undefined}
+              />
+            </>
           )}
 
           {!isAdmin && (

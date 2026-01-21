@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Drawer, Toolbar, Typography, Button, Stack, Box, Divider } from "@mui/material";
+import { Drawer, Toolbar, Typography, Button, Stack, Box, Divider, useMediaQuery } from "@mui/material";
 import FolderRoundedIcon from "@mui/icons-material/FolderRounded";
 
 interface AdminNavBarProps {
@@ -9,21 +9,30 @@ interface AdminNavBarProps {
   onOpenLogin: () => void;
   onLogout: () => void;
   onOpenProjects?: () => void;
+  open?: boolean; // Nuevo: controla si el drawer está abierto
+  onClose?: () => void; // Nuevo: función para cerrar el drawer
 }
 
 /**
  * Barra de navegación lateral del admin memoizada
  * Solo se re-renderiza si cambian las props
  */
-function AdminNavBarComponent({ proyectoNombre, isAdmin, onBack, onOpenLogin, onLogout, onOpenProjects }: AdminNavBarProps) {
+function AdminNavBarComponent({ proyectoNombre, isAdmin, onBack, onOpenLogin, onLogout, onOpenProjects, open, onClose }: AdminNavBarProps) {
+  // Detecta si es móvil
+  const isMobile = useMediaQuery('(max-width:600px)');
+  const drawerWidth = isMobile ? '80vw' : 260;
+  const variant = isMobile ? 'temporary' : 'permanent';
+
   return (
     <Drawer
-      variant="permanent"
+      variant={variant}
       anchor="left"
+      open={isMobile ? open : true}
+      onClose={isMobile ? onClose : undefined}
       slotProps={{
         paper: {
           sx: {
-            width: 260,
+            width: drawerWidth,
             bgcolor: "background.paper",
             borderRight: "1px solid",
             borderColor: "divider",
