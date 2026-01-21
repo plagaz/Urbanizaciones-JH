@@ -8,6 +8,7 @@ import {
   mapLoteRowToModel,
   mapProyectoRowToModel,
 } from "./types";
+import { checkIsAdmin } from "./auth.service";
 
 /**
  * Obtener todos los proyectos con sus lotes
@@ -60,6 +61,11 @@ export const getProyectos = async (): Promise<Proyecto[]> => {
  */
 export const createProyecto = async (proyecto: Proyecto): Promise<Proyecto> => {
   try {
+    // Verificar autorización de admin
+    const isAdmin = await checkIsAdmin();
+    if (!isAdmin) {
+      throw new Error('No autorizado: Se requiere rol de administrador');
+    }
     const payload: ProyectoInsert = {
       id: proyecto.id,
       nombre: proyecto.nombre,
@@ -92,6 +98,11 @@ export const updateProyecto = async (
   updates: Partial<Proyecto>
 ): Promise<Proyecto> => {
   try {
+    // Verificar autorización de admin
+    const isAdmin = await checkIsAdmin();
+    if (!isAdmin) {
+      throw new Error('No autorizado: Se requiere rol de administrador');
+    }
     const updateData: ProyectoUpdate = {};
     if (updates.nombre !== undefined) updateData.nombre = updates.nombre;
     if (updates.imagenUrl !== undefined) updateData.imagen_url = updates.imagenUrl;
@@ -118,6 +129,11 @@ export const updateProyecto = async (
  */
 export const deleteProyecto = async (proyectoId: string): Promise<void> => {
   try {
+    // Verificar autorización de admin
+    const isAdmin = await checkIsAdmin();
+    if (!isAdmin) {
+      throw new Error('No autorizado: Se requiere rol de administrador');
+    }
     const { error } = await supabase
       .from('proyectos')
       .delete()
@@ -138,6 +154,11 @@ export const deleteProyecto = async (proyectoId: string): Promise<void> => {
  */
 export const uploadPlanoImage = async (file: File, proyectoId: string): Promise<string> => {
   try {
+    // Verificar autorización de admin
+    const isAdmin = await checkIsAdmin();
+    if (!isAdmin) {
+      throw new Error('No autorizado: Se requiere rol de administrador');
+    }
     const nameExt = file.name.includes('.') ? file.name.split('.').pop() : undefined;
     const mimeExt = file.type && file.type.includes('/') ? file.type.split('/').pop() : undefined;
     const fileExt = (nameExt || mimeExt || 'bin').toLowerCase();

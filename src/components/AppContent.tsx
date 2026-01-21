@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { type Lote, type Proyecto } from "../lib/supabase";
+import { type Lote, type Proyecto, supabase } from "../lib/supabase";
 import { useNotification } from "../contexts/NotificationContext";
 import { LoteDialog } from "./LoteDialog";
 import { AdminButton } from "./AdminButton";
@@ -82,6 +82,40 @@ export function AppContent() {
     queryKey: ["proyectos"],
     queryFn: getProyectos,
   });
+
+  // Suscripción en tiempo real a cambios en lotes y proyectos
+  useEffect(() => {
+    // Suscribirse a cambios en la tabla lotes
+    const lotesChannel = supabase
+      .channel("lotes-changes")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "lotes" },
+        () => {
+          // Invalidar query cuando hay cambios
+          queryClient.invalidateQueries({ queryKey: ["proyectos"] });
+        }
+      )
+      .subscribe();
+
+    // Suscribirse a cambios en la tabla proyectos
+    const proyectosChannel = supabase
+      .channel("proyectos-changes")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "proyectos" },
+        () => {
+          // Invalidar query cuando hay cambios
+          queryClient.invalidateQueries({ queryKey: ["proyectos"] });
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(lotesChannel);
+      supabase.removeChannel(proyectosChannel);
+    };
+  }, [queryClient]);
 
   // Establecer proyecto inicial
   useEffect(() => {

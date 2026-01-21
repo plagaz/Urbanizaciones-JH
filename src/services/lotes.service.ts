@@ -5,6 +5,7 @@ import {
   type LoteUpdate,
   mapLoteRowToModel,
 } from "./types";
+import { checkIsAdmin } from "./auth.service";
 
 /**
  * Crear un nuevo lote
@@ -14,6 +15,11 @@ export const createLote = async (
   lote: Omit<Lote, "id">
 ): Promise<Lote> => {
   try {
+    // Verificar autorización de admin
+    const isAdmin = await checkIsAdmin();
+    if (!isAdmin) {
+      throw new Error('No autorizado: Se requiere rol de administrador');
+    }
     const { data, error } = await supabase
       .from("lotes")
       .insert({
@@ -47,6 +53,11 @@ export const updateLoteCoords = async (
   coords: Lote['coords']
 ): Promise<void> => {
   try {
+    // Verificar autorización de admin
+    const isAdmin = await checkIsAdmin();
+    if (!isAdmin) {
+      throw new Error('No autorizado: Se requiere rol de administrador');
+    }
     const { error } = await supabase
       .from('lotes')
       .update({ coords } satisfies LoteUpdate)
@@ -71,6 +82,11 @@ export const updateLoteEstado = async (
   promotor?: string
 ): Promise<void> => {
   try {
+    // Verificar autorización de admin
+    const isAdmin = await checkIsAdmin();
+    if (!isAdmin) {
+      throw new Error('No autorizado: Se requiere rol de administrador');
+    }
     const updateData: LoteUpdate = { estado };
     
     if (estado === 'reservado' && promotor) {
@@ -123,6 +139,11 @@ export const liberarLote = async (loteId: number): Promise<void> => {
  */
 export const deleteLote = async (loteId: number): Promise<void> => {
   try {
+    // Verificar autorización de admin
+    const isAdmin = await checkIsAdmin();
+    if (!isAdmin) {
+      throw new Error('No autorizado: Se requiere rol de administrador');
+    }
     const { error } = await supabase
       .from('lotes')
       .delete()
